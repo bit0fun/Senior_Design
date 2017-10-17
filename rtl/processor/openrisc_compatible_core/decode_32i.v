@@ -19,10 +19,11 @@ module decode_32i(
 	wire[3:0]	opcode_alu_w;			//Wire for ALU opcode
 	wire[15:0]	immediate_w;			//Immediate value
 	wire[7:0]	opcode_fpu;				//Opcode for FPU
-
+	wire[1:0]	opcode_ldst;			//Opcode for Load/Store inst
 
 
 
 	/*Assignments*/
 	
 	assign opcode_w = inst_in[31:26];	//Opcode, bits 31 to 26
+	assign 
