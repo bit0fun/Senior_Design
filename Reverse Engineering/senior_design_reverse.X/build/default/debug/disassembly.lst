@@ -1,0 +1,1383 @@
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ; TODO INSERT CONFIG CODE HERE USING CONFIG BITS GENERATOR
+Warning[205]: Found directive in column 1. (list)
+                      00002 list p=pic16f639
+                      00003 #include<p16f639.inc>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Jan 30 2017
+                      00005 ;  MPASM PIC16F639 processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2017 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      00422         LIST
+                      00004 
+                      00005 ;Unsure if these are accurate declarations
+                      00006 ;W   EQU        0x00
+                      00007 ;F   EQU        0x01
+                      00008     
+                      00009 RES_VEC CODE 0x0000
+0000   2???           00010     goto label_00c
+                      00011 
+                      00012 ISR CODE    0x0004
+0004   00FE           00013     movwf   0x7e
+0005   0803           00014     movf    STATUS, W
+0006   00F8           00015     movwf   0x78
+0007   0804           00016     movf    FSR, W
+0008   00F9           00017     movwf   0x79
+0009   080A           00018     movf    PCLATH, W
+000A   00FA           00019     movwf   0x7a
+000B   2???           00020     goto    label_117
+000C                  00021 label_00c:
+000C   2AAD           00022     goto    0x02ad
+000D                  00023 label_00d:
+000D   2???           00024     call    label_224
+000E   3000           00025     movlw   0x00
+000F   2???           00026     call    label_28b
+0010   2???           00027     call    label_0a5
+0011   1283           00028     bcf     STATUS, 0x05
+0012   1303           00029     bcf     STATUS, 0X06
+0013   01D3           00030     clrf    0x53
+0014   0AD3           00031     incf    0x53, f
+0015                  00032 label_015:
+0015   0B53           00033     decfsz  0x53, w
+0016   2???           00034     goto    label_036
+0017   0185           00035     clrf    PORTA
+0018   303F           00036     movlw   0x3f
+0019   1683           00037     bsf     STATUS, 0x05
+001A   0085           00038     movwf   PORTA
+001B   3030           00039     movlw   0x30
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+001C   0095           00040     movwf   WPUDA
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+001D   0097           00041     movwf   WDA
+001E                  00042 label_01e:    
+001E   1283           00043     bcf     STATUS, 0x05
+001F   1885           00044     btfsc   PORTA, 0x01
+0020   2???           00045     goto    label_029
+0021   2???           00046     call    label_0a5
+0022   3005           00047     movlw   0x05
+0023   1283           00048     bcf     STATUS, 0x05
+0024   1303           00049     bcf     STATUS, 0x06
+0025   00A0           00050     movwf   0x20
+0026   01A1           00051     clrf    0x21
+0027   2???           00052     call    label_2e8
+0028   2???           00053     goto    label_01e
+0029                  00054 label_029:    
+0029   0190           00055     clrf    T1CON
+002A   3007           00056     movlw   0x07
+002B   1683           00057     bsf     STATUS, 0x05
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+002C   0096           00058     movwf   IOCA
+002D   30F8           00059     movlw   0xf8
+002E   008B           00060     movwf   INTCON
+002F   0000           00061     NOP
+0030   0063           00062     SLEEP
+0031   0000           00063     NOP
+0032   0000           00064     NOP
+0033   1283           00065     bcf     STATUS, 0x05
+0034   1303           00066     bcf     STATUS, 0x06
+0035   1053           00067     bcf     0x53, 0x00
+0036                  00068 label_036:    
+0036   1CD3           00069     btfss   0x53, 0x01
+0037   2???           00070     goto    label_09e
+0038   1D05           00071     btfss   PORTA, 0x2
+0039   2???           00072     goto    label_07c
+003A   3003           00073     movlw   0x3
+003B   024C           00074     subwf   0x4c, W
+003C   30E8           00075     movlw   0xe8
+003D   1903           00076     btfsc   STATUS, 0x2
+003E   024B           00077     subwf   0x4b, W
+003F   1803           00078     btfsc   STATUS, 0x0
+0040   2???           00079     goto    label_056
+0041   3000           00080     movlw   0x0
+0042   024C           00081     subwf   0x4c, W
+0043   3014           00082     movlw   0x14
+0044   1803           00083     btfsc   STATUS, 0x0
+0045   1953           00084     btfsc   0x53, 0x2
+0046   2???           00085     goto    label_09e
+0047   1553           00086     bsf     0x53, 0x2
+0048   1DD3           00087     btfss   0x53, 0x3
+0049   2???           00088     goto    label_09e
+004A   3093           00089     movlw   0x93
+004B   00D0           00090     movwf   0x50
+004C   3050           00091     movlw   0x50
+004D   00D1           00092     movwf   0x51
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+004E   3066           00093     movlw   0x66
+004F   00D2           00094     movwf   0x52
+0050   300F           00095     movlw   0xf
+0051   00D5           00096     movwf   0x55
+0052   17D3           00097     bsf     0x53, 0x7
+0053   2???           00098     goto    label_09e
+0054                  00099 label_056:
+0054   3007           00100     movlw   0x7
+0055   024C           00101     subwf   0x4c, W
+0056   30D1           00102     movlw   0xd1
+0057   1903           00103     btfsc   STATUS, 0x2
+0058   024B           00104     subwf   0x4b, W
+0059   1C03           00105     btfss   STATUS, 0x0
+005A   2???           00106     goto    label_09e
+005B   30D0           00107     movlw   0xd0
+005C   00CB           00108     movwf   0x4b
+005D   3007           00109     movlw   0x7
+005E   00CC           00110     movwf   0x4c
+005F   1BD3           00111     btfsc   0x53, 0x7
+0060   2???           00112     goto    label_09e
+0061   3028           00113     movlw   0x28
+0062   0ACF           00114     incf    0x4f, F
+0063   024F           00115     subwf   0x4f, W
+0064   1803           00116     btfsc   STATUS, 0x0 ;if statement?
+0065   2???           00117     goto    label_06c
+0066   3093           00118     movlw   0x93
+0067   00D0           00119     movwf   0x50
+0068   3060           00120     movlw   0x60
+0069   2???           00121     goto    label_075
+006A                  00122 label_06c:
+006A   084F           00123     movf    0x4f, W
+006B   3A28           00124     xorlw   0x28
+006C   1903           00125     btfsc   STATUS, 0x2
+006D   0AD4           00126     incf    0x54, F
+006E   3029           00127     movlw   0x29
+006F   00CF           00128     movwf   0x4f
+0070   3093           00129     movlw   0x93
+0071   00D0           00130     movwf   0x50
+0072   30C0           00131     movlw   0xc0
+0073                  00132 label_075:
+0073   00D1           00133     movwf   0x51
+0074   3066           00134     movlw   0x66
+0075   00D2           00135     movwf   0x52
+0076   17D3           00136     bsf     0x53, 0x7
+0077   01D5           00137     clrf    0x55
+0078   0AD5           00138     incf    0x55, F
+0079   2???           00139     goto    label_09e
+007A                  00140 label_07c:
+007A   1D53           00141     btfss   0x53, 0x2 ;continuation of if statement?
+007B   2???           00142     goto    label_091
+007C   1153           00143     bcf     0x53, 0x2
+007D   1253           00144     bcf     0x53, 0x4
+007E   01CB           00145     clrf    0x4b
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+007F   01CC           00146     clrf    0x4c
+0080   0AD4           00147     incf    0x54, F
+0081   01CF           00148     clrf    0x4f
+0082   1DD3           00149     btfss   0x53, 03
+0083   2???           00150     goto    label_088
+0084   11D3           00151     bcf     0x53, 0x3
+0085   2???           00152     goto    label_09e
+0086                  00153 label_088:
+0086   3003           00154     movlw   0x3
+0087   024C           00155     subwf   0x4c, W
+0088   30E8           00156     movlw   0xe8
+0089   1903           00157     btfsc   STATUS, 0x2
+008A   024B           00158     subwf   0x4b, W
+008B   1803           00159     btfsc   STATUS, 0x0
+008C   2???           00160     goto    label_09e
+008D   15D3           00161     bsf     0x53, 0x3
+008E   2???           00162     goto    label_09e
+008F                  00163 label_091:
+008F   3003           00164     movlw   0x3
+0090   024C           00165     subwf   0x4c, W
+0091   30E8           00166     movlw   0xe8
+0092   1903           00167     btfsc   STATUS, 0x2
+0093   024B           00168     subwf   0x4b, W
+0094   1C03           00169     btfss   STATUS, 0x0
+0095   2???           00170     goto    label_09e
+0096   10D3           00171     bcf     0x53, 0x1
+0097   11D3           00172     bcf     0x53, 0x3
+0098   1253           00173     bcf     0x53, 0x4
+0099   01CB           00174     clrf    0x4b
+009A   01CC           00175     clrf    0x4c
+009B   01CF           00176     clrf    0x4f
+009C                  00177 label_09e: ;very important, refernced multiple times
+009C   1FD3           00178     btfss   0x53, 0x7
+009D   2???           00179     goto    label_015 ;possibly main?
+009E   2???           00180     call    label_180
+009F   1283           00181     bcf     STATUS, 0x5
+00A0   13D3           00182     bcf     0x53, 0x7
+00A1   1453           00183     bsf     0x53, 0x0
+00A2   2???           00184     goto    label_015
+00A3                  00185 label_0a5:
+00A3   1283           00186     bcf     STATUS, 0x5
+00A4   01B6           00187     clrf    0x36
+00A5   3028           00188     movlw   0x28
+00A6   0084           00189     movwf   FSR
+00A7   3056           00190     movlw   0x56
+00A8                  00191 label_0af:
+00A8   00A4           00192     movwf   0x24
+00A9   0804           00193     movf    FSR, W
+00AA   00A5           00194     movwf   0x25
+00AB   300E           00195     movlw   0xe
+00AC   00A6           00196     movwf   0x26
+00AD   0824           00197     movf    0x24, W
+00AE   1383           00198     bcf     STATUS, 0x7
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00AF   0800           00199     movf    INDF, W
+00B0   00A7           00200     movwf   0x27
+00B1   0AA4           00201     incf    0x24, F
+00B2   0825           00202     movf    0x25, W
+00B3   0084           00203     movwf   FSR
+00B4   0827           00204     movf    0x27, W
+00B5   0080           00205     movwf   INDF
+00B6   0AA5           00206     incf    0x25, F
+00B7   0BA6           00207     decfsz  0x26, F
+00B8   2???           00208     goto    label_0af ;definitally a loop ?
+00B9   01B8           00209     clrf    0x38
+00BA                  00210 label_0bd:
+00BA   0838           00211     movf    0x38, W
+00BB   3E40           00212     addlw   0x40
+00BC   0084           00213     movwf   FSR
+00BD   1383           00214     bcf     STATUS, 0x7
+00BE   0800           00215     movf    INDF, W
+00BF   2???           00216     call    label_111
+00C0   1003           00217     bcf     STATUS, 0x0
+00C1   0D38           00218     rlf     0x38, W ;possibly a multiplication? weird
+00C2   3E28           00219     addlw   0x28
+00C3   0084           00220     movwf   FSR
+00C4   0824           00221     movf    0x24, W
+00C5   0480           00222     iorwf   INDF, F
+00C6   0A84           00223     incf    FSR, F
+00C7   0838           00224     movf    0x38, W
+00C8   3E40           00225     addlw   0x40
+00C9   0084           00226     movwf   FSR
+00CA   0800           00227     movf    INDF, W
+00CB   2???           00228     call    label_319
+00CC   3A00           00229     xorlw   0x0
+00CD   1003           00230     bcf     STATUS, 0x0
+00CE   1903           00231     btfsc   STATUS, 0x2
+00CF   2???           00232     goto    label_0dd
+00D0   0D38           00233     rlf     0x38, W
+00D1   3E28           00234     addlw   0x28
+00D2   0084           00235     movwf   FSR
+00D3   3001           00236     movlw   0x1
+00D4   0480           00237     iorwf   INDF, F
+00D5   0A84           00238     incf    FSR, F
+00D6   0AB6           00239     incf    0x36, F
+00D7   1003           00240     bcf     STATUS, 0x0
+00D8                  00241 label_0dd:          ;function
+00D8   0D38           00242     rlf     0x38, W
+00D9   3E28           00243     addlw   0x28
+00DA   0084           00244     movwf   FSR
+00DB   0800           00245     movf    INDF, W
+00DC   00A0           00246     movwf   0x20
+00DD   0A84           00247     incf    FSR, F
+00DE   0800           00248     movf    INDF, W
+00DF   00A1           00249     movwf   0x21
+00E0   2???           00250     call    label_25d
+00E1   1283           00251     bcf     STATUS, 0x5
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00E2   0AB8           00252     incf    0x38, F
+00E3   3006           00253     movlw   0x6
+00E4   0238           00254     subwf   0x38, W
+00E5   1C03           00255     btfss   STATUS, 0x0
+00E6   2???           00256     goto    label_0bd
+00E7   0841           00257     movf    0x41, W ;possibly sending data to RF?
+00E8   0640           00258     xorwf   0x40, W
+00E9   00B7           00259     movwf   0x37
+00EA   0842           00260     movf    0x42, W
+00EB   06B7           00261     xorwf   0x37, F
+00EC   0843           00262     movf    0x43, W
+00ED   06B7           00263     xorwf   0x37, F
+00EE   0844           00264     movf    0x44, W
+00EF   06B7           00265     xorwf   0x37, F
+00F0   0845           00266     movf    0x45, W
+00F1   06B7           00267     xorwf   0x37, F
+00F2   30FF           00268     movlw   0xff
+00F3   06B7           00269     xorwf   0x37, F
+00F4   0837           00270     movf    0x37, W
+00F5   2???           00271     call    label_111
+00F6   0824           00272     movf    0x24, W
+00F7   04B4           00273     iorwf   0x34, F
+00F8   0825           00274     movf    0x25, W
+00F9   04B5           00275     iorwf   0x35, F
+00FA   1C36           00276     btfss   0x36, 0x0
+00FB   1434           00277     bsf     0x34, 0x0
+00FC   0835           00278     movf    0x35, W
+00FD   00A1           00279     movwf   0x21
+00FE   0835           00280     movf    0x35, W
+00FF   00A0           00281     movwf   0x20
+0100   2???           00282     call    label_25d
+0101   0000           00283     nop
+0102   0000           00284     nop
+0103   1283           00285     bcf     STATUS, 0x5
+0104   1303           00286     bcf     STATUS, 0x6
+0105   01A0           00287     clrf    0x20
+0106   3020           00288     movlw   0x20
+0107   00A1           00289     movwf   0x21
+0108   2???           00290     call    label_25d
+0109   0000           00291     nop
+010A   0000           00292     nop
+010B   0008           00293     return
+                      00294     
+010C                  00295 label_111:      ;function
+010C   00A4           00296     movwf   0x24
+010D   01A5           00297     clrf    0x25
+010E   1003           00298     bcf     STATUS, 0x0
+010F   0DA4           00299     rlf     0x24, F
+0110   0DA5           00300     rlf     0x25, F
+0111   0008           00301     return
+                      00302     
+0112                  00303 label_117:
+0112   1283           00304     bcf     STATUS, 0x5
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE  7
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0113   1303           00305     bcf     STATUS, 0x6
+0114   0805           00306     movf    PORTA, W
+0115   0085           00307     movwf   PORTA
+0116   080B           00308     movf    INTCON, W
+0117   00FB           00309     movwf   0x7b
+0118   30F8           00310     movlw   0xf8
+0119   058B           00311     andwf   INTCON, F
+011A   1D7B           00312     btfss   0x7b, 0x2 ;switch statement?
+011B   2???           00313     goto    label_131
+011C   1CD3           00314     btfss   0x53, 0x1
+011D   2???           00315     goto    label_126
+011E   0ACB           00316     incf    0x4b, F
+011F   1903           00317     btfsc   STATUS, 0x2
+0120   0ACC           00318     incf    0x4c, F
+0121                  00319 label_126:
+0121   1ED3           00320     btfss   0x53, 0x5
+0122   2???           00321     goto    label_131
+0123   30AC           00322     movlw   0xac
+0124   0AF2           00323     incf    0x72, F
+0125   0272           00324     subwf   0x72, W
+0126   1C03           00325     btfss   STATUS, 0x0
+0127   2???           00326     goto    label_131
+0128   01F2           00327     clrf    0x72
+0129   0190           00328     clrf    T1CON
+012A   12D3           00329     bcf 0x53, 0x5
+012B   1453           00330     bsf 0x53, 0x0
+012C                  00331 label_131:
+012C   18FB           00332     btfsc   0x7b, 0x1
+012D   14D3           00333     bsf 0x53, 0x1
+012E   1C7B           00334     btfss   0x7b, 0x0
+012F   2???           00335     goto    label_177
+0130   1885           00336     btfsc   PORTA, 0x1
+0131   2???           00337     goto    label_139
+0132   1453           00338     bsf     0x53, 0x0
+0133   2???           00339     goto    label_177
+0134                  00340 label_139:
+0134   1C05           00341     btfss   PORTA, 0x0
+0135   2???           00342     goto    label_148
+0136   1AD3           00343     btfsc   0x53, 0x5
+0137   2???           00344     goto    label_142
+0138   16D3           00345     bsf     0x53, 0x5
+0139   01F4           00346     clrf    0x74
+013A   01F3           00347     clrf    0x73
+013B   01F0           00348     clrf    0x70
+013C   01F2           00349     clrf    0x72
+013D                  00350 label_142:          ;Possibly timer handler? retfie is called @17f so it would make sense
+013D   018E           00351     clrf    TMR1
+013E   018F           00352     clrf    TMR1H
+013F   1410           00353     bsf     T1CON, 0x0
+0140   01F1           00354     clrf    0x71
+0141   0AF1           00355     incf    0x71, F
+0142   2???           00356     goto    label_177
+0143                  00357 label_148:
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0143   0B71           00358     decfsz  0x71, W
+0144   2???           00359     goto    label_177
+0145   3006           00360     movlw   0x6
+0146   020F           00361     subwf   TMR1H, W
+0147   3000           00362     movlw   0x0
+0148   1803           00363     btfsc   STATUS, 0x0
+0149   2???           00364     goto    label_156
+014A   0AF3           00365     incf    0x73, F
+014B   01F1           00366     clrf    0x71
+014C   1003           00367     bcf     STATUS, 0x0
+014D   0DF4           00368     rlf     0x74, F
+014E   2???           00369     goto    label_162
+014F                  00370 label_156:
+014F   3002           00371     movlw   0x2
+0150   020F           00372     subwf   TMR1H, W
+0151   1C03           00373     btfss   STATUS, 0x0
+0152   2???           00374     goto    label_162
+0153   0AF3           00375     incf    0x73, F
+0154   01F1           00376     clrf    0x71
+0155   1003           00377     bcf     STATUS, 0x0
+0156   0DF4           00378     rlf     0x74, F
+0157   1474           00379     bsf     0x74, 0x0
+0158                  00380 label_162:
+0158   3008           00381     movlw   0x8
+0159   0273           00382     subwf   0x73, W
+015A   1C03           00383     btfss   STATUS, 0x0
+015B   2???           00384     goto    label_177
+015C   0870           00385     movf    0x70, W
+015D   3E46           00386     addlw   0x46
+015E   0084           00387     movwf   FSR
+015F   0874           00388     movf    0x74, W
+0160   1383           00389     bcf     STATUS, 0x7
+0161   0080           00390     movwf   INDF
+0162   0AF0           00391     incf    0x70, F
+0163   3005           00392     movlw   0x5
+0164   0270           00393     subwf   0x70, w
+0165   1C03           00394     btfss   STATUS, 0x0
+0166   2???           00395     goto    label_176
+0167   2???           00396     call    label_1e2
+0168   1FD3           00397     btfss   0x53, 0x7
+0169   2???           00398     goto    label_175
+016A   01F2           00399     clrf    0x72
+016B                  00400 label_175: ;this is strange, most likely testing state changes
+016B   01F0           00401     clrf    0x70
+016C                  00402 label_176:
+016C   01F3           00403     clrf    0x73
+016D                  00404 label_177:
+016D   087A           00405     movf    0x7a, W
+016E   008A           00406     movwf   PCLATH  ;what is the purpose of this reg?
+016F   0879           00407     movf    0x79, W
+0170   0084           00408     movwf   FSR
+0171   0878           00409     movf    0x78, W
+0172   0083           00410     movwf   STATUS
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0173   0EFE           00411     swapf   0x7e, F ;why would this be useful?
+0174   0E7E           00412     swapf   0x7e, W
+0175   0009           00413     retfie  ;so this would be an ISR? must be, but where does it start?
+                      00414 
+                      00415 ;Function from 0x180 to 0x223
+0176                  00416 label_180:
+0176   30C4           00417     movlw   0xc4
+0177   00B6           00418     movwf   0x36
+0178   0E54           00419     swapf   0x54, W
+0179   39F0           00420     andlw   0xf0
+017A   00B7           00421     movwf   0x37
+017B   084D           00422     movf    0x4d, W
+017C   390F           00423     andlw   0xf
+017D   04B7           00424     iorwf   0x37, F
+017E   084E           00425     movf    0x4e, W
+017F   00B8           00426     movwf   0x38
+0180   0875           00427     movf    0x75, W
+0181   00B9           00428     movwf   0x39
+0182   0850           00429     movf    0x50, W
+0183   00BA           00430     movwf   0x3a
+0184   0851           00431     movf    0x51, W
+0185   00BB           00432     movwf   0x3b
+0186   0852           00433     movf    0x52, W
+0187   00BC           00434     movwf   0x3c
+0188   01BD           00435     clrf    0x3d
+0189   01BF           00436     clrf    0x3f
+018A   0ABF           00437     incf    0x3f, F
+018B                  00438 label_195:
+018B   083F           00439     movf    0x3f, W
+018C   3E36           00440     addlw   0x36
+018D   0084           00441     movwf   FSR
+018E   1383           00442     bcf     STATUS, 0x7
+018F   0800           00443     movf    INDF, W
+0190   07BD           00444     addwf   0x3d, F
+0191   0ABF           00445     incf    0x3f, F
+0192   3007           00446     movlw   0x7
+0193   023F           00447     subwf   0x3f, W
+0194   1C03           00448     btfss   STATUS, 0x0
+0195   2???           00449     goto    label_195
+0196   01BF           00450     clrf    0x3f 
+0197                  00451 label_1a1:
+0197   083F           00452     movf    0x3f, W
+0198   3E36           00453     addlw   0x36
+0199   0084           00454     movwf   FSR
+019A   0800           00455     movf    INDF, W
+019B   2???           00456     call    label_2cd
+019C   1003           00457     bcf     STATUS, 0x0
+019D   0D3F           00458     rlf     0x3f, W
+019E   3E26           00459     addlw   0x26
+019F   0084           00460     movwf   FSR         ;Setting where to put memory in RAM
+01A0   0820           00461     movf    0x20, W
+01A1   0080           00462     movwf   INDF        ;storing INDF?
+01A2   0A84           00463     incf    FSR, F
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+01A3   3008           00464     movlw   0x8
+01A4   023F           00465     subwf   0x3f, W
+01A5   1C03           00466     btfss   STATUS, 0x0
+01A6   2???           00467     goto    label_1a1
+01A7   3000           00468     movlw   0x0
+01A8   2???           00469     call    label_28b   ;strange how this is called twice here
+01A9   3001           00470     movlw   0x1 ;must be useful for the function call
+01AA   2???           00471     call    label_28b
+01AB   018B           00472     clrf    INTCON
+01AC   1283           00473     bcf     STATUS, 0x5
+01AD   0855           00474     movf    0x55, W
+01AE   00BF           00475     movwf   0x3F
+01AF                  00476 label_1bc:
+01AF   08BF           00477     movf    0x3f, F
+01B0   1903           00478     btfsc   STATUS, 0x2
+01B1   2???           00479     goto    label_1de
+01B2   3006           00480     movlw   0x6
+01B3   00BE           00481     movwf   0x3e
+01B4                  00482 label_1c1:
+01B4   30AA           00483     movlw   0xaa
+01B5   00A0           00484     movwf   0x20
+01B6   00A1           00485     movwf   0x21
+01B7   2???           00486     call    label_301
+01B8   0BBE           00487     decfsz  0x3e, F
+01B9   2???           00488     goto    label_1c1
+01BA   01BE           00489     clrf    0x3e
+01BB   1003           00490     bcf     STATUS, 0x0
+01BC                  00491 label_1c9:
+01BC   0D3E           00492     rlf     0x3e, W
+01BD   3E26           00493     addlw   0x26
+01BE   0084           00494     movwf   FSR
+01BF   1383           00495     bcf     STATUS, 0x7
+01C0   0800           00496     movf    INDF, W
+01C1   00A0           00497     movwf   0x20
+01C2   0A84           00498     incf    FSR, F
+01C3   0800           00499     movf    INDF, W
+01C4   00A1           00500     movwf   0x21
+01C5   2???           00501     call    label_301
+01C6   0ABE           00502     incf    0x3e, F
+01C7   3008           00503     movlw   0x8
+01C8   023E           00504     subwf   0x3e, W
+01C9   1C03           00505     btfss   STATUS, 0x0
+01CA   2???           00506     GOTO    label_1c9
+01CB   01A0           00507     clrf    0x20
+01CC   0AA0           00508     incf    0x20, F
+01CD   01A1           00509     clrf    0x21
+01CE   2???           00510     call    label_2e8
+01CF   03BF           00511     decf    0x3f, F
+01D0   2???           00512     goto    label_1bc
+01D1                  00513 label_1de:
+01D1   30F8           00514     movlw   0xf8
+01D2   008B           00515     movwf   INTCON
+01D3   3002           00516     movlw   0x2
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 11
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+01D4   2???           00517     goto    label_28b
+01D5                  00518 label_1e2:
+01D5   0846           00519     movf    0x46, W
+01D6   00F6           00520     movwf   0x76
+01D7   0847           00521     movf    0x47, W
+01D8   3980           00522     andlw   0x80
+01D9   07F6           00523     addwf   0x76, F
+01DA   3002           00524     movlw   0x2
+01DB   00F7           00525     movwf   0x77
+01DC                  00526 label_1e9:
+01DC   0877           00527     movf    0x77, W
+01DD   3E46           00528     addlw   0x46
+01DE   0084           00529     movwf   FSR
+01DF   0800           00530     movf    INDF, W
+01E0   07F6           00531     addwf   0x76, F
+01E1   0AF7           00532     incf    0x77, F
+01E2   3005           00533     movlw   0x5
+01E3   0277           00534     subwf   0x77, W
+01E4   1C03           00535     btfss   STATUS, 0x0
+01E5   2???           00536     goto    label_1e9
+01E6   13F6           00537     bcf     0x76, 0x7
+01E7   0847           00538     movf    0x47, W
+01E8   397F           00539     andlw   0x7f
+01E9   0676           00540     xorwf   0x76, W
+01EA   1D03           00541     btfss   STATUS, 0x2
+01EB   0008           00542     return
+                      00543     
+01EC   0848           00544     movf    0x48, W
+01ED   39F0           00545     andlw   0xf0
+01EE   3AC0           00546     xorlw   0xc0
+01EF   1D03           00547     btfss   STATUS, 0x2
+01F0   2???           00548     goto    label_204
+01F1   0849           00549     movf    0x49, W
+01F2   0675           00550     xorwf   0x75, W
+01F3   1D03           00551     btfss   STATUS, 0x2
+01F4   2???           00552     goto    label_204
+01F5   30C0           00553     movlw   0xc0
+01F6   00F7           00554     movwf   0x77
+01F7                  00555 label_204:
+01F7   0848           00556     movf    0x48, W
+01F8   390F           00557     andlw   0xf
+01F9   3A0C           00558     xorlw   0xc
+01FA   1D03           00559     btfss   STATUS, 0x2
+01FB   2???           00560     goto    label_20f
+01FC   084A           00561     movf    0x4a, W
+01FD   0675           00562     xorwf   0x75, W
+01FE   1D03           00563     btfss   STATUS, 0x2
+01FF   2???           00564     goto    label_20f
+0200   30C0           00565     movlw   0xc0
+0201   00F7           00566     movwf   0x77
+0202                  00567 label_20f:
+0202   0877           00568     movf    0x77, W
+0203   3AC0           00569     xorlw   0xc0
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 12
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0204   1903           00570     btfsc   STATUS, 0x2
+0205   1FC6           00571     btfss   0x46, 0x7
+0206   0008           00572     return
+0207   1F46           00573     btfss   0x46, 0x6   ;if bit 0x6 of 0x46 is 1, set 0x51 = 0x50, otherwise 0x51 = 0x55 
+0208   2???           00574     goto    label_218
+0209   3055           00575     movlw   0x55
+020A   2???           00576     goto    label_219
+020B                  00577 label_218:
+020B   3050           00578     movlw   0x50
+020C                  00579 label_219:
+020C   00D1           00580     movwf   0x51   
+020D   3093           00581     movlw   0x93
+020E   00D0           00582     movwf   0x50
+020F   3055           00583     movlw   0x55
+0210   00D2           00584     movwf   0x52
+0211   17D3           00585     bsf     0x53, 0x7
+0212   0AD4           00586     incf    0x54, F
+0213   300A           00587     movlw   0xa
+0214   00D5           00588     movwf   0x55
+0215   018B           00589     clrf    INTCON
+0216   0008           00590     return
+                      00591 
+0217                  00592 label_224:
+0217   3071           00593     movlw   0x71
+0218   1683           00594     bsf     STATUS, 0x5
+0219   008F           00595     movwf   TMR1H
+021A                  00596 label_227:  ;waiting for timer to go off
+021A   1D0F           00597     btfss   TMR1H, 0x2
+021B   2???           00598     goto    label_227 ;timer loop, delay
+021C   018B           00599     clrf    INTCON
+021D   3041           00600     movlw   0x41
+021E   0081           00601     movwf   TMR0
+021F   3007           00602     movlw   0x7
+0220   1283           00603     bcf     STATUS, 0x5
+0221   0099           00604     movwf   CMCON0
+0222   1683           00605     bsf     STATUS, 0x5
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0223   0194           00606     clrf    LVDCON
+0224   1283           00607     bcf     STATUS, 0x5
+0225   0185           00608     clrf    PORTA
+0226   303F           00609     movlw   0x3f
+0227   1683           00610     bsf     STATUS, 0x5
+0228   0085           00611     movwf   PORTA
+0229   3030           00612     movlw   0x30
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+022A   0095           00613     movwf   WPUDA    ;this repeated earlier, why?
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+022B   0097           00614     movwf   WDA
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+022C   0196           00615     clrf    IOCA
+022D   3002           00616     movlw   0x2
+022E   1283           00617     bcf     STATUS, 0x5
+022F   0087           00618     movwf   PORTC   ;interesting, first time use here
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 13
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0230   300C           00619     movlw   0xc
+0231   1683           00620     bsf     STATUS, 0x5
+0232   0087           00621     movwf   PORTC
+0233   3032           00622     movlw   0x32
+0234   1283           00623     bcf     STATUS, 0x5
+0235   00A0           00624     movwf   0x20
+0236   01A1           00625     clrf    0x21
+0237   2???           00626     call    label_2e8
+0238   3016           00627     movlw   0x16
+0239   2???           00628     call    label_331
+023A   1283           00629     bcf     STATUS, 0x5
+023B   00CE           00630     movwf   0x4e
+023C   3014           00631     movlw   0x14
+023D   2???           00632     call    label_331
+023E   00F5           00633     movwf   0x75
+023F   30A0           00634     movlw   0xa0
+0240   1283           00635     bcf     STATUS, 0x5
+0241   00C0           00636     movwf   0x40
+0242   303B           00637     movlw   0x3b
+0243   00C1           00638     movwf   0x41
+0244   3020           00639     movlw   0x20
+0245   00C2           00640     movwf   0x42
+0246   3010           00641     movlw   0x10
+0247   00C3           00642     movwf   0x43
+0248   01C4           00643     clrf    0x44
+0249   3080           00644     movlw   0x80
+024A   00C5           00645     movwf   0x45
+024B   0008           00646     return
+                      00647     
+024C                  00648 label_25d:
+024C   1683           00649     bsf     STATUS, 0x5 ;setting portc IO pins here, why?
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+024D   1107           00650     bcf     TRISC, 0x2  ; pin 2 output
+024E   1103           00651     bcf     STATUS, 0x2
+024F   1107           00652     bcf     PORTC, 0x2  ;initialize as 0
+                      00653     
+0250   1683           00654     bsf     STATUS, 0x5 ;output pin 1
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0251   1087           00655     bcf     TRISC, 0x1  
+0252   1283           00656     bcf     STATUS, 0x5
+0253   1087           00657     bcf     PORTC, 0x1
+                      00658     
+0254   1683           00659     bsf     STATUS, 0x5
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0255   1187           00660     bcf     TRISC, 0x3  ;output pin 3
+0256   1283           00661     bcf     STATUS, 0x5
+0257   1187           00662     bcf     PORTC, 0x3
+0258   01A2           00663     clrf    0x22
+0259                  00664 label_26a:
+0259   1FA1           00665     btfss   0x21, 0x7
+025A   2???           00666     goto    label_26e
+025B   1587           00667     bsf     PORTC, 0x3
+025C   2???           00668     goto    label_26f
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 14
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+025D                  00669 label_26e:
+025D   1187           00670     bcf     PORTC, 0x3
+025E                  00671 label_26f:
+025E   0000           00672     nop
+025F   0000           00673     nop
+0260   0000           00674     nop
+0261   1283           00675     bcf     STATUS, 0x5
+0262   1303           00676     bcf     STATUS, 0x6
+0263   1507           00677     bsf     PORTC, 0x2
+0264   0000           00678     nop
+0265   0000           00679     nop
+0266   0000           00680     nop
+0267   0000           00681     nop
+0268   1283           00682     bcf     STATUS, 0x5
+0269   1303           00683     bcf     STATUS, 0x6
+026A   1107           00684     bcf     PORTC, 0x2
+026B   1003           00685     bcf     STATUS, 0x0
+026C   0DA0           00686     rlf     0x20, F
+026D   0DA1           00687     rlf     0x21, F
+026E   0AA2           00688     incf    0x22, F
+026F   3010           00689     movlw   0x10
+0270   0222           00690     subwf   0x22, W
+0271   1C03           00691     btfss   STATUS, 0x0
+0272   2???           00692     goto    label_26a
+0273   1683           00693     bsf     STATUS, 0x5 ;turn off PORTC? thats what it seems here
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0274   1587           00694     bsf     TRISC, 0x3  ;turn pin 3 to input
+0275   1283           00695     bcf     STATUS, 0x5
+0276   1487           00696     bsf     PORTC, 0x1  ;put pin 1 high
+0277   1683           00697     bsf     STATUS, 0x5
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0278   1507           00698     bsf     TRISC, 0x2 ;turn pin 2 to input
+0279   0008           00699     return
+                      00700     
+027A                  00701 label_28b:
+027A   1283           00702     bcf     STATUS, 0x5
+027B   00A0           00703     movwf   0x20
+027C                  00704 label_28e:
+027C   2???           00705     goto    label_2a2
+027D   30CE           00706     movlw   0xce
+027E   0587           00707     andwf   PORTC, F    ;F is a bitmask for PORTC here  
+027F   1683           00708     bsf     STATUS, 0x5
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0280   0587           00709     andwf   TRISC, F
+0281   0008           00710     return 
+0282                  00711 label_293:
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0282   1687           00712     bsf     TRISC, 0x5  ;pin 5 input
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0283   1207           00713     bcf     TRISC, 0x4  ;pin 4 output
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0284   1007           00714     bcf     TRISC, 0x0  ;pin 0 output
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 15
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0285   1607           00715     bsf     TRISC, 0x4  ;pin 4 input?
+0286   018E           00716     clrf    TMR1
+0287   018F           00717     clrf    TMR1H
+0288   1410           00718     bsf     T1CON, 0x0
+0289   0008           00719     return
+028A                  00720 label_29b:
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+028A   1287           00721     bcf     TRISC, 0x5  ;pin 5 output
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+028B   1207           00722     bcf     TRISC, 0x4  ;pin 4 output
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+028C   1007           00723     bcf     TRISC, 0x0  ;pin 0 output
+028D   0190           00724     clrf    T1CON
+028E   018E           00725     clrf    TMR1
+028F   018F           00726     clrf    TMR1H
+0290   0008           00727     return
+                      00728 
+0291                  00729 label_2a2:   
+0291   0820           00730     movf    0x20, W
+0292   3A00           00731     xorlw   0X0
+0293   1903           00732     btfsc    STATUS, 0x2
+0294   2???           00733     goto    label_28e
+0295   3A01           00734     xorlw   0x1
+0296   1903           00735     btfsc   STATUS, 0x2
+0297   2???           00736     goto    label_293
+0298   3A03           00737     xorlw   0x3
+0299   1D03           00738     btfss   STATUS, 0x2
+029A   0008           00739     return
+029B   2???           00740     goto    label_29b
+029C   3070           00741     movlw   0x70
+029D   0084           00742     movwf   FSR
+029E   3076           00743     movlw   0x76
+029F   2???           00744     call    label_329
+02A0   1383           00745     bcf     STATUS, 0x7
+02A1   3040           00746     movlw   0x40
+02A2   0084           00747     movwf   FSR
+02A3   3056           00748     movlw   0x56
+02A4   2???           00749     call    label_329
+02A5   01D6           00750     clrf    0x56
+02A6   30E0           00751     movlw   0xe0
+02A7   00D7           00752     movwf   0x57
+02A8   01D8           00753     clrf    0x58
+02A9   30E2           00754     movlw   0xe2
+02AA   00D9           00755     movwf   0x59
+02AB   01DA           00756     clrf    0x5a
+02AC   30E4           00757     movlw   0xe4
+02AD   00DB           00758     movwf   0x5b
+02AE   01DC           00759     clrf    0x5c
+02AF   30E6           00760     movlw   0xe6
+02B0   00DD           00761     movwf   0x5d
+02B1   01DE           00762     clrf    0x5e
+02B2   30E8           00763     movlw   0xe8
+02B3   00DF           00764     movwf   0x5f
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 16
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+02B4   01E0           00765     clrf    0x60
+02B5   30EA           00766     movlw   0xea
+02B6   00E1           00767     movwf   0x61
+02B7   01E2           00768     clrf    0x62
+02B8   30EC           00769     movlw   0xec
+02B9   00E3           00770     movwf   0x63
+02BA   0183           00771     clrf    STATUS
+02BB   2???           00772     goto    label_00d ;such a large jump, why?
+02BC                  00773 label_2cd:
+02BC   00A2           00774     movwf   0x22
+02BD   01A3           00775     clrf    0x23
+02BE   01A4           00776     clrf    0x24
+02BF   01A5           00777     clrf    0x25
+02C0   1003           00778     bcf     STATUS, 0x0 ;why is this repeated twice?
+02C1   0DA3           00779     rlf     0x23, F
+02C2   0DA4           00780     rlf     0x24, F
+02C3   1003           00781     bcf     STATUS, 0x0
+02C4                  00782 label_2d2:
+02C4   0DA3           00783     rlf     0x23, F
+02C5   0DA4           00784     rlf     0x24, F
+02C6   1FA2           00785     btfss   0x22, 0x7
+02C7   2???           00786     goto    label_2db
+02C8   1423           00787     bsf     0x23, 0x0
+02C9   2???           00788     goto    label_2dc
+02CA                  00789 label_2db:
+02CA   14A3           00790     bsf     0x23, 0x1    
+02CB                  00791 label_2dc:
+02CB   1003           00792     bcf     STATUS, 0x0
+02CC   0DA2           00793     rlf     0x22, F
+02CD   0AA5           00794     incf    0x25, F
+02CE   3008           00795     movlw   0x8
+02CF   0225           00796     subwf   0x25, W
+02D0   1C03           00797     btfss   STATUS, 0x0
+02D1   2???           00798     goto    label_2d2
+02D2   0824           00799     movf    0x24, W
+02D3   00A1           00800     movwf   0x21
+02D4   0823           00801     movf    0x23, W
+02D5   00A0           00802     movwf   0x20
+02D6   0008           00803     return
+                      00804     
+02D7                  00805 label_2e8:
+02D7   3001           00806     movlw   0x1
+02D8   02A0           00807     subwf   0x20, F
+02D9   3000           00808     movlw   0x0
+02DA   1C03           00809     btfss   STATUS, 0x0
+02DB   03A1           00810     decf    0x21, F
+02DC   02A1           00811     subwf   0x21, F
+02DD   0A20           00812     incf    0x20, W
+02DE   1903           00813     btfsc   STATUS, 0x2
+02DF   0A21           00814     incf    0x21, W
+02E0   1903           00815     btfsc   STATUS, 0x2
+02E1   0008           00816     return
+02E2   30E2           00817     movlw   0xe2
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 17
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+02E3   00A2           00818     movwf   0x22
+02E4   3001           00819     movlw   0x1
+02E5   00A3           00820     movwf   0x23
+02E6                  00821 label_2f7:
+02E6   3001           00822     movlw   0x1
+Message[305]: Using default destination of 1 (file).
+02E7   02A2           00823     subwf   0x22
+02E8   1C03           00824     btfss   STATUS, 0x0
+02E9   03A3           00825     decf    0x23, F
+02EA   0A22           00826     incf    0x22, W
+02EB   1903           00827     btfsc   STATUS, 0x2
+02EC   2???           00828     goto    label_2e8
+02ED   2???           00829     goto    label_2f7
+02EE                  00830 label_301:
+02EE   3010           00831     movlw   0x10
+02EF   00A2           00832     movwf   0x22
+02F0                  00833 label_303:
+02F0   3001           00834     movlw   0x1
+02F1   020F           00835     subwf   TMR1H, W
+02F2   3098           00836     movlw   0x98
+02F3   1903           00837     btfsc   STATUS, 0x2
+02F4   020E           00838     subwf   TMR1, W
+02F5   1C03           00839     btfss   STATUS, 0x0
+02F6   2???           00840     goto    label_315
+02F7   018E           00841     clrf    TMR1
+02F8   018F           00842     clrf    TMR1H
+02F9   1FA1           00843     btfss   0x21, 0x7
+02FA   2???           00844     goto    label_310
+02FB   1407           00845     bsf     PORTC, 0x0
+02FC   2???           00846     goto    label_311
+02FD                  00847 label_310:
+02FD   1007           00848     bcf     PORTC, 0x0
+02FE                  00849 label_311:
+02FE   1003           00850     bcf     STATUS, 0x0
+02FF   0DA0           00851     rlf     0x20, F
+0300   0DA1           00852     rlf     0x21, F
+0301   03A2           00853     decf    0x22, F
+0302                  00854 label_315:
+0302   08A2           00855     movf    0x22, F
+0303   1903           00856     btfsc   STATUS, 0x2
+0304   0008           00857     return
+0305   2???           00858     goto    label_303
+0306                  00859 label_319:
+0306   00A0           00860     movwf   0x20
+0307   00A2           00861     movwf   0x22
+0308   01A1           00862     clrf    0x21
+0309   01A3           00863     clrf    0x23
+030A                  00864 label_31d:
+030A   1BA2           00865     btfsc   0x22, 0x7
+030B   0AA1           00866     incf    0x21, F
+030C   1003           00867     bcf     STATUS, 0x0
+030D   0DA2           00868     rlf     0x22, F
+030E   0AA3           00869     incf    0x23, F
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 18
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+030F   3008           00870     movlw   0x8
+0310   0223           00871     subwf   0x23, W
+0311   1C03           00872     btfss   STATUS, 0x0
+0312   2???           00873     goto    label_31d
+0313   1C21           00874     btfss   0x21, 0x0 ;if 0x21 bit 0 is 1, return 0; if 0, return 1
+0314   3401           00875     retlw   0x1
+0315   3400           00876     retlw   0x0
+0316                  00877 label_329:
+0316   0064           00878     clrwdt      ;possibly this is a watchdog timer ISR?
+0317                  00879 label_32a:      ;EEPROM?
+0317   0180           00880     clrf    INDF
+0318   0A84           00881     incf    FSR, F
+0319   0604           00882     xorwf   FSR, W
+031A   1903           00883     btfsc   STATUS, 0x2
+031B   3400           00884     retlw   0x0
+031C   0604           00885     xorwf   FSR, W
+031D   2???           00886     goto    label_32a
+031E                  00887 label_331:  ;EEPROM writing?
+031E   00A0           00888     movwf   0x20
+031F   1683           00889     bsf     STATUS, 0x5
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0320   009B           00890     movwf   EEADR
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0321   141C           00891     bsf     EECON1, 0x0
+0322   081A           00892     movf    CMCON1, W
+0323   0008           00893     return
+                      00894     
+                      00895     END
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 19
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+C1IE                              00000003
+C1IF                              00000003
+C1INV                             00000004
+C1OUT                             00000006
+C2IE                              00000004
+C2IF                              00000004
+C2INV                             00000005
+C2OUT                             00000007
+C2SYNC                            00000000
+CIS                               00000003
+CM0                               00000000
+CM1                               00000001
+CM2                               00000002
+CMCON0                            00000019
+CMCON1                            0000001A
+CRCON                             00000110
+CRDAT0                            00000111
+CRDAT1                            00000112
+CRDAT2                            00000113
+CRDAT3                            00000114
+CRIE                              00000005
+CRIF                              00000005
+CRREG0                            00000000
+CRREG1                            00000001
+DC                                00000001
+EEADR                             0000009B
+EECON1                            0000009C
+EECON2                            0000009D
+EEDAT                             0000009A
+EEDATA                            0000009A
+EEIE                              00000007
+EEIF                              00000007
+ENC_DEC                           00000006
+ENC_NOT_DEC                       00000006
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+GO                                00000007
+GO_NOT_DONE                       00000007
+HTS                               00000002
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IOCA                              00000096
+IOCA0                             00000000
+IOCA1                             00000001
+IOCA2                             00000002
+IOCA3                             00000003
+IOCA4                             00000004
+IOCA5                             00000005
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 20
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+IRCF0                             00000004
+IRCF1                             00000005
+IRCF2                             00000006
+IRP                               00000007
+IRVST                             00000005
+LTS                               00000001
+LVDCON                            00000094
+LVDEN                             00000004
+LVDIE                             00000006
+LVDIF                             00000006
+LVDL0                             00000000
+LVDL1                             00000001
+LVDL2                             00000002
+NOT_BOD                           00000000
+NOT_BOR                           00000000
+NOT_PD                            00000003
+NOT_POR                           00000001
+NOT_RAPU                          00000007
+NOT_T1SYNC                        00000002
+NOT_TO                            00000004
+NOT_WUR                           00000003
+OPTION_REG                        00000081
+OSCCON                            0000008F
+OSCTUNE                           00000090
+OSFIE                             00000002
+OSFIF                             00000002
+OSTS                              00000003
+PCL                               00000002
+PCLATH                            0000000A
+PCON                              0000008E
+PEIE                              00000006
+PIE1                              0000008C
+PIR1                              0000000C
+PORTA                             00000005
+PORTC                             00000007
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RA5                               00000005
+RAIE                              00000003
+RAIF                              00000000
+RC0                               00000000
+RC1                               00000001
+RC2                               00000002
+RC3                               00000003
+RC4                               00000004
+RC5                               00000005
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 21
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+SBODEN                            00000004
+SBOREN                            00000004
+SCS                               00000000
+STATUS                            00000003
+SWDTEN                            00000000
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+T1CKPS0                           00000004
+T1CKPS1                           00000005
+T1CON                             00000010
+T1GINV                            00000007
+T1GSS                             00000001
+T1OSCEN                           00000003
+TMR0                              00000001
+TMR1                              0000000E
+TMR1CS                            00000001
+TMR1GE                            00000006
+TMR1H                             0000000F
+TMR1IE                            00000000
+TMR1IF                            00000000
+TMR1L                             0000000E
+TMR1ON                            00000000
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISA5                            00000005
+TRISC                             00000087
+TRISC0                            00000000
+TRISC1                            00000001
+TRISC2                            00000002
+TRISC3                            00000003
+TRISC4                            00000004
+TRISC5                            00000005
+TUN0                              00000000
+TUN1                              00000001
+TUN2                              00000002
+TUN3                              00000003
+TUN4                              00000004
+ULPWUE                            00000005
+VR0                               00000000
+VR1                               00000001
+VR2                               00000002
+VR3                               00000003
+VRCON                             00000099
+VREN                              00000007
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 22
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+VRR                               00000005
+W                                 00000000
+WDA                               00000097
+WDA0                              00000000
+WDA1                              00000001
+WDA2                              00000002
+WDA4                              00000004
+WDA5                              00000005
+WDTCON                            00000018
+WDTPS0                            00000001
+WDTPS1                            00000002
+WDTPS2                            00000003
+WDTPS3                            00000004
+WPUDA                             00000095
+WPUDA0                            00000000
+WPUDA1                            00000001
+WPUDA2                            00000002
+WPUDA4                            00000004
+WPUDA5                            00000005
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_BOD_NSLEEP                       00003EFF
+_BOD_OFF                          00003CFF
+_BOD_ON                           00003FFF
+_BOD_SBODEN                       00003DFF
+_BOREN_NSLEEP                     00003EFF
+_BOREN_OFF                        00003CFF
+_BOREN_ON                         00003FFF
+_BOREN_SBODEN                     00003DFF
+_CONFIG                           00002007
+_CPD_OFF                          00003FFF
+_CPD_ON                           00003F7F
+_CP_OFF                           00003FFF
+_CP_ON                            00003FBF
+_DEVID1                           00002006
+_EC_OSC                           00003FFB
+_EXTRC_OSC_CLKOUT                 00003FFF
+_EXTRC_OSC_NOCLKOUT               00003FFE
+_FCMEN_OFF                        000037FF
+_FCMEN_ON                         00003FFF
+_FOSC_EC                          00003FFB
+_FOSC_EXTRCCLK                    00003FFF
+_FOSC_EXTRCIO                     00003FFE
+_FOSC_HS                          00003FFA
+_FOSC_INTOSCCLK                   00003FFD
+_FOSC_INTOSCIO                    00003FFC
+_FOSC_LP                          00003FF8
+_FOSC_XT                          00003FF9
+_HS_OSC                           00003FFA
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 23
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_IESO_OFF                         00003BFF
+_IESO_ON                          00003FFF
+_INTRC_OSC_CLKOUT                 00003FFD
+_INTRC_OSC_NOCLKOUT               00003FFC
+_LP_OSC                           00003FF8
+_MCLRE_OFF                        00003FDF
+_MCLRE_ON                         00003FFF
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FEF
+_WDTE_OFF                         00003FF7
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FF7
+_WDT_ON                           00003FFF
+_WUREN_OFF                        00003FFF
+_WUREN_ON                         00002FFF
+_WURE_OFF                         00003FFF
+_WURE_ON                          00002FFF
+_XT_OSC                           00003FF9
+__16F639                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+label_00c                         0000000C
+label_00d                         0000000D
+label_015                         00000015
+label_01e                         0000001E
+label_029                         00000029
+label_036                         00000036
+label_056                         00000054
+label_06c                         0000006A
+label_075                         00000073
+label_07c                         0000007A
+label_088                         00000086
+label_091                         0000008F
+label_09e                         0000009C
+label_0a5                         000000A3
+label_0af                         000000A8
+label_0bd                         000000BA
+label_0dd                         000000D8
+label_111                         0000010C
+label_117                         00000112
+label_126                         00000121
+label_131                         0000012C
+label_139                         00000134
+label_142                         0000013D
+label_148                         00000143
+label_156                         0000014F
+label_162                         00000158
+label_175                         0000016B
+label_176                         0000016C
+label_177                         0000016D
+label_180                         00000176
+MPASM 5.72                   DISASSEMBLY.ASM   10-22-2017  18:16:57         PAGE 24
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+label_195                         0000018B
+label_1a1                         00000197
+label_1bc                         000001AF
+label_1c1                         000001B4
+label_1c9                         000001BC
+label_1de                         000001D1
+label_1e2                         000001D5
+label_1e9                         000001DC
+label_204                         000001F7
+label_20f                         00000202
+label_218                         0000020B
+label_219                         0000020C
+label_224                         00000217
+label_227                         0000021A
+label_25d                         0000024C
+label_26a                         00000259
+label_26e                         0000025D
+label_26f                         0000025E
+label_28b                         0000027A
+label_28e                         0000027C
+label_293                         00000282
+label_29b                         0000028A
+label_2a2                         00000291
+label_2cd                         000002BC
+label_2d2                         000002C4
+label_2db                         000002CA
+label_2dc                         000002CB
+label_2e8                         000002D7
+label_2f7                         000002E6
+label_301                         000002EE
+label_303                         000002F0
+label_310                         000002FD
+label_311                         000002FE
+label_315                         00000302
+label_319                         00000306
+label_31d                         0000030A
+label_329                         00000316
+label_32a                         00000317
+label_331                         0000031E
+
+Errors   :     0
+Warnings :     1 reported,     0 suppressed
+Messages :    23 reported,     0 suppressed
+
+
