@@ -1,4 +1,4 @@
-# University of Rochester Senior Design Project: Low Power Server
+# University of Rochester Senior Design Project: <br/><br/> Low Power Server
 ## About the Project
 We have designed and assessed the feasibility of a low power server that can display a website page within minimal latency (1-10 seconds) of a standard web server. Due to the complexity and time constraints, we have created designs for the motherboard, toolchain for the custom processor, and simulated programs of necessary drivers. The motherboard is ready to be sent for first prototypes, and the assembler and linker function flawlessly. The simulator runs Fusion-Core executable ELF files, with a proper memory view and register dump of the running program.
 
@@ -26,7 +26,7 @@ Another important point is that the program to be run on the server is meant to 
 - [ Why not use a Raspberry Pi or old computer instead? ](#why-not-use-a-raspberry-pi-or-old-computer-instead)
 - [ Why not use an existing ISA? ](#why-not-use-an-existing-isa)
 
-### Why not use a Rapsberry Pi or old computer instead?
+### Why not use a Raspberry Pi or old computer instead?
 There are two main reasons to our decision of not using existing hardware. The larger of the two, would be fine control over the power draw of the system. Since the entire purpose of the design is to provide an overall lower power system, being able to choose and design an efficient power supply and high efficiency components is a requirement.
 
 The second reason focuses on more of the software capability, as we are running the applications bare-metal. Without an operating system, again we get fine tuned control over what is going on, and can optimize for lower power as less excess code will be running. An added benefit of course is a bit more performance, as again no extra code would be running. With an existing system, we would need to have a complete understanding of how to create the drivers for that system. Due to most computers (if not all) not having freely available documentation, especially the Raspberry Pi with large binary blobs for certain drivers, we would not have been able to design a solution in the way we intended.
