@@ -28,7 +28,7 @@ In order to verify our design before testing the implementation of the Fusion-Co
 More information about the Simulator can be found in the [Reports](https://github.com/bit0fun/Senior_Design/tree/master/Reports) directory within the repository.
 
 ### Server Side Software
-
+While we were unable to run the software on actual hardware due to the limited budget and amount of time we had, we utilized the simulator to emulate the memory mapped components such that it would function in the same way on real hardware. We created drivers for the ethernet controller and SD card, as well as the beginnings of an TCP/IP stack and HTTP server. At the time we were working on this project, there was no GCC port for the Fusion-Core ISA, so all of the programs were written in Assembly language. More information about the software can be found in the [Reports](https://github.com/bit0fun/Senior_Design/tree/master/Reports) directory within the repository.
 
 ## Use Case
 For low to mid range performance applications, we propose this to be a better solution than commercial servers. As the power consumption will be far lower, we take the trade off of performance as web applications are not CPU intensive. Outside of server farms and high performance computing, having systems that are underutilized yet draw a large amount of power, is a waste in terms of energy and space.
@@ -43,6 +43,7 @@ Another important point is that the program to be run on the server is meant to 
 ## FAQ
 - [ Why not use a Raspberry Pi or old computer instead? ](#why-not-use-a-raspberry-pi-or-old-computer-instead)
 - [ Why not use an existing ISA? ](#why-not-use-an-existing-isa)
+- [ What is the estimated cost of manufacture?](#what-is-the-estimated-cost-of-manufacture)
 
 ### Why not use a Raspberry Pi or old computer instead?
 There are two main reasons to our decision of not using existing hardware. The larger of the two, would be fine control over the power draw of the system. Since the entire purpose of the design is to provide an overall lower power system, being able to choose and design an efficient power supply and high efficiency components is a requirement.
@@ -54,3 +55,6 @@ The second reason focuses on more of the software capability, as we are running 
 While using an existing ISA may have reduced development time, using a custom ISA provides us with full understanding of the implementation. Instead of spending time sifting through existing  ISAs' (usually poor) documentation and learning what design decisions the creators have made, we can instead put time into developing our own system and then take less time in writing software as we developed the system from the ground up.
 
 The reason why we chose to use the Fusion-Core ISA specifically, is the added bonus of expandability to the ISA. The Fusion-Core ISA allows for custom instruction additions, which are called Co-Processors in the specification, with the added bonus of forwards and backwards binary compatibility. In designs that require high reliability that will be implemented for long periods of time, this amount of customization and compatibility is certainly advantageous.  
+
+### What is the estimated cost of manufacture?
+For one-off prototypes, we have been quoted at around $1.6k, for a 1 month turn-key operation. In the event that we were to manufacture this design in quantities larger than 1,000 , we could reduce materials costs to approximately $120 or less per unit.
