@@ -3,14 +3,32 @@
 We have designed and assessed the feasibility of a low power server that can display a website page within minimal latency (1-10 seconds) of a standard web server. Due to the complexity and time constraints, we have created designs for the motherboard, toolchain for the custom processor, and simulated programs of necessary drivers. The motherboard is ready to be sent for first prototypes, and the assembler and linker function flawlessly. The simulator runs Fusion-Core executable ELF files, with a proper memory view and register dump of the running program.
 
 ### The motherboard
+The motherboard adheres to the Mini-ITX standard, so it is compatible with any existing computer case that supports Mini-ITX motherboards. In order to realize the custom processor, we are using a Xilinx Artix-7 35T FPGA. This FPGA also contains DDR3 hard IP as well as 4 TX and RX 3.125 Gb/s transceivers, which we have utilized. The simulated power draw of the system met our expectations with a total power draw under maximum load around 15W, with approximately 2W of dissipated power. This does not include the external ATX power supply. The devices and IO connectivity are listed below.
+- Xilinx Artix-7 35T 484 pin FPGA
+- 4Gb of DDR3L RAM
+- 10/100 Mb/s Ethernet MAC and PHY controller
+- 4x link Expansion Card interface, maximum of 25 Gbps transfer (TX/RX combined)
+- Micro SD Card connector
+- HyperBus Flash and RAM IC
+- Custom power conditioning design (88% efficient, 2W of dissipated power, ~15W total)
+- ATX 2.0 compatible Power Connector
+- SPI BIOS configuration flash, and FPGA configuration flash
+- 6 pin debug pin header
+- Standard Xilinx JTAG connector
 
+More information about the design can be found in the [Reports](https://github.com/bit0fun/Senior_Design/tree/master/Reports) folder in the repository.
 
 
 ### Fusion-Core ISA
+The Fusion-Core ISA was designed with two goals in mind: Simple Decoding of instructions and the ability to easily add custom instructions. Due to the nature of this design, the main instruction set was chosen to be very small and compact, which allows for implementation in a wide variety of applications. Specifically relating to servers, the ability of adding additional instructions is useful in that external processor cards, such as PCIe FPGA expansion cards, are not necessary. This design does not require such functionality, but we felt it is important to include expandability and scalability in such a design even if it is not specifically made for the purpose of high performance. More information about the Fusion-Core ISA can be found [here](https://github.com/bit0fun/Fusion-Core).
+
 
 ### Fusion-Core Simulator
+In order to verify our design before testing the implementation of the Fusion-Core processor, we created a simulator to ensure proper execution of our programs. This freed us from requiring a hardware debug unit in the immediate time frame, as we can check execution by either running the program in full, or stepping through a program. With access to register views and a text file simulating the whole memory, we can effectively emulate the processor as close as possible without requiring additional hardware or software.
+More information about the Simulator can be found in the [Reports](https://github.com/bit0fun/Senior_Design/tree/master/Reports) directory within the repository.
 
 ### Server Side Software
+
 
 ## Use Case
 For low to mid range performance applications, we propose this to be a better solution than commercial servers. As the power consumption will be far lower, we take the trade off of performance as web applications are not CPU intensive. Outside of server farms and high performance computing, having systems that are underutilized yet draw a large amount of power, is a waste in terms of energy and space.
