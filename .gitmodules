@@ -1,0 +1,9 @@
+[submodule "Senior_Design_Hardware"]
+	path = Senior_Design_Hardware
+	url = https://github.com/bit0fun/Senior_Design_Hardware.git
+[submodule "fusion-core-binutils"]
+	path = fusion-core-binutils
+	url = https://github.com/bit0fun/fusion-core-binutils.git
+[submodule "Fusion-Core"]
+	path = Fusion-Core
+	url = https://github.com/bit0fun/Fusion-Core.git
