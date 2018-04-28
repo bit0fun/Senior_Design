@@ -50,9 +50,88 @@
 
 \clearpage
 
+% The overview section should be brief, like an abstract. Try to be concise when 
+% talking about what you did. The other parts of the report are for going into more detail
 \section[Overview]{Overview of the Simulator}
-\subsection{}
 
+% This paragraph is the real 'abstract' like part. Just talk about why we made it, why it's useful,
+% and pretty much whatever else you want to talk about in a short way. Just don't go that far into detail;
+% think of this part as what someone who stumbles across this paper would think as they read this. If they
+% are interested in it, they should read further. Throughout the paper point out the sections to look at
+% for more detail on a specific subject. I have enabled links, so you can do a link though I don't know the syntax
+% off the top of my head.
+\paragraph{}
+
+% Here you should expand a bit on actually using it, in a very breif way. Like running the command. Tell the reader
+% to go to the appropriate section to learn more about compiling the simulator from the source code.
+\subsection{Use Case}
+\paragraph{}
+
+% This part is a brief 'what did you do?'. 
+\subsection{Design Choices and Functionality}
+\paragraph{}
+
+
+\clearpage
+
+\section[Simulator Usage]{How to use the Simulator}
+\paragraph{}
+
+% Not a tutorial, but this should have a step by step guide to compiling the code from source.
+% Without this information, the project is effectively useless as no one would be able to use it.
+\subsection[Compilation]{How to Compilation}
+\paragraph{}
+
+% Now for the fun part, here you should go over how to actually run the program. I would include a bit on 
+% using the assembler and linker, to get a binary but you don't have to go into detail as that should be more common
+% knowledge. Then all the options for running the program, and what they do (such as when you type 'help' after a command)
+% and of course how to actually use the program.
+\subsection[Simulator Command]{Running the Simulator}
+\paragraph{}
+
+
+% Here is basically all the bugs that you have found, but have fixes for that can be easily done.
+% This should be more about compilation things and actual user error, rather than bugs in the code.
+% For example, the 'qmake' issue, would have a soultion of 'make sure the Qt libraries are installed.
+\subsection{Troubleshooting}
+\paragraph{}
+
+% I would put various bugs you have found ( and commit numbers where you have
+% fixed them if they are no longer present ). It's good to acknolwedge what is wrong and ideas on how to fix the issues,
+% as it shows the effort put into the work.
+\subsection{Known Bugs}
+\paragraph{}
+
+\clearpage
+
+% This section is where you would talk about how you made the program, not what was done. Such as the libraries you used,
+% how you solved certain problems, why you did what you did. You should be able to defend why you did what you did, if there
+% were multiple paths you could have taken. Don't explicitly write the questions, you should infer that a question was asked and
+% you are answering it in writing. For example: (assume that a struct was used, instead of an integer for the instruction stream)
+% "In order to increase readability for parsing the instructions, a struct was used to separate the bit fields. An added benefit is that this
+% eliminates the need to use bitwise operations later in the program". The implied question is "why use a struct instead of an integer?". 
+\section[Internals]{Simulator Internals Documentation}
+
+% Here discuss the different parts of the program, and how you put them together. The different parts should be explained later in
+% their respective sections
+\paragraph{}
+
+
+\subsection{ELF Handling}
+\paragraph{}
+
+\subsection{CPU Simulation}
+\paragraph{}
+
+\subsection{Memory Simulation}
+\paragraph{}
+
+%Even without a Graphical User Interface, there is still one so you should explain that
+\subsection{User Interface}
+\paragraph{}
+
+%add any additional sections I may have missed. Don't feel weird about changing the sections around, or splitting them into further
+%sections. There should be subdivisions of what you did, but don't make them so divided that it's impossible to read
 
 
 \end{document}
