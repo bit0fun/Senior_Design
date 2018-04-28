@@ -1,4 +1,4 @@
-\documentclass[letterpaper, 11pt]{article}
+\documentclass[letterpaper, 11pt, twoside]{article}
 \usepackage{longtable}
 \usepackage{graphicx}
 \usepackage[left=1in, right=1in, top=1.00in, bottom=1.00in]{geometry}
@@ -6,8 +6,53 @@
 \usepackage{hyperref}
 \usepackage{amssymb}
 
-\hypersetup{colorlinks=false,linktoc=all}
+%Header information
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[CO, CE]{Section \thesection}
+\fancyhead[RO, LE]{Low Power Server: Hardware Report}
+\fancyfoot{}
+\fancyfoot[LO, RE]{\thepage}
+\fancyfoot[CO, RE]{Dylan Wadler}
 
+\hypersetup{colorlinks=false,linktoc=all}
 \begin{document}
+
+\begin{titlepage}
+	\begin{center}
+
+	%Project Information
+	\vspace*{1cm}
+	\Huge
+	\textbf{Low Power Server}
+
+	\vspace{0.5cm}
+	\LARGE
+	University of Rochester ECE Senior Design 
+
+	%Title
+	\vspace{1cm}
+	\LARGE
+	Hardware Report
+	\vspace{1.5cm}
 	
+	%Author
+	\textbf{Dylan Wadler} 
+	\vfill
+	
+	
+	\end{center}
+\end{titlepage}
+\clearpage
+
+\tableofcontents
+
+\clearpage
+
+\section[Overview]{Overview of the Hardware}
+\subsection{}
+
+
+
 \end{document}
