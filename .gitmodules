@@ -7,3 +7,6 @@
 [submodule "Fusion-Core"]
 	path = Fusion-Core
 	url = https://github.com/bit0fun/Fusion-Core.git
+[submodule "fusion-reactor"]
+	path = fusion-reactor
+	url = git@github.com:bit0fun/fusion-reactor.git
