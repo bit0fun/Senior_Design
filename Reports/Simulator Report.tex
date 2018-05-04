@@ -5,6 +5,7 @@
 \usepackage{subfigure}
 \usepackage{hyperref}
 \usepackage{amssymb}
+\usepackage{listings}
 
 %Header information
 \usepackage{fancyhdr}
@@ -57,7 +58,7 @@
 
 % The overview section should be brief, like an abstract. Try to be concise when 
 % talking about what you did. The other parts of the report are for going into more detail
-\section[Overview]{Overview of the Simulator}
+\section[Overview]{Overview of the Simulator} 
 
 % This paragraph is the real 'abstract' like part. Just talk about why we made it, why it's useful,
 % and pretty much whatever else you want to talk about in a short way. Just don't go that far into detail;
@@ -65,27 +66,57 @@
 % are interested in it, they should read further. Throughout the paper point out the sections to look at
 % for more detail on a specific subject. I have enabled links, so you can do a link though I don't know the syntax
 % off the top of my head.
-\paragraph{}
+\paragraph{} 
+\begin{flushleft}
+Fusion Core is a processor architecture that is still under development. The aim of the project is to optimize the final product for power consumption, from the hardware down to the instruction set architecture. Even for a grand project like this one, it is of utmost importance that the ISA does what it ought to do correctly. That is exactly where the Fusion-Reactor Simulator comes in. The simulator is a software program that has been designed to mimic the Fusion Core processor architecture instruction execution. The simulator is meant to  aid the architecture designers validate their design. Developers may also find the simulator useful for debugging purposes.
+\end{flushleft}
 
 % Here you should expand a bit on actually using it, in a very breif way. Like running the command. Tell the reader
 % to go to the appropriate section to learn more about compiling the simulator from the source code.
 \subsection{Use Case}
 \paragraph{}
+\begin{flushleft}
+The downloaded file will contain makefiles and scripts that will be used for building the source code. Once compiled, an executable will be generated and will reside in the same folder as the the source files. To run the simulator, the user will have to have in the same folder or another, a program written in fusion-core assembly code. The executable being simulated should have been built using the the fusion-elf binutils toolchain. Refer to sections below for further instructions
+\end{flushleft}
+
 
 % This part is a brief 'what did you do?'. 
 \subsection{Design Choices and Functionality}
 \paragraph{}
+\begin{flushleft}
+On top of the back end that implements the actual simulator, the designers chose to add a simple user interface to make following a running program as easy for users. The simulator has the following capabilities:
+ 
+ \begin{itemize}
+     \item  Displays all essential information about the processor's current state. This information is needed for debugging purposes.
+     \item Has different modes, the most important being the ability to allow the user to step through a program, one instruction at a time.
+     \item Currently handles a few exceptions. More exception handling capabilities will be added later.
+ \end{itemize}
+\end{flushleft}
 
 
 \cleardoublepage
 
 \section[Simulator Usage]{How to use the Simulator}
 \paragraph{}
+\begin{flushleft}
+	This sections provides directions on how to install the simulator on your own system and how to run it.
+\end{flushleft}
+
 
 % Not a tutorial, but this should have a step by step guide to compiling the code from source.
 % Without this information, the project is effectively useless as no one would be able to use it.
 \subsection[Compilation]{How to Compilation}
 \paragraph{}
+\begin{flushleft}
+The user will need the follow the steps below:
+	\begin{itemize}
+		\item To familiarise yourself with the fusion-core instruction set, you will need to clone this (https://github.com/bit0fun/Fusion-Core.git) git repository. It contains documents that provide a full list of the architecture's instruction set and other specifications.
+		\item To download the fusion-elf tool-chain, clone this (https://github.com/bit0fun/fusion-core-binutils.git) git repository and run bulid\_script.sh. You may need to install any libraries you may be missing that this program depends on.
+		\item Finally clone this(https://github.com/bit0fun/fusion-reactor.git) repository. Run make in the the terminal inside the fusion\_reactor directory.
+	\end{itemize}
+	
+
+\end{flushleft}
 
 % Now for the fun part, here you should go over how to actually run the program. I would include a bit on 
 % using the assembler and linker, to get a binary but you don't have to go into detail as that should be more common
@@ -93,13 +124,39 @@
 % and of course how to actually use the program.
 \subsection[Simulator Command]{Running the Simulator}
 \paragraph{}
+\begin{flushleft}
+To run your program, run the following command in the directory that contains the compiled program:
+\begin{lstlisting}
+	./fusion-react <elf filename>
+\end{lstlisting}
 
+The program will display a blank screen. The user can choose  from any of the following options going forward:
+\begin{enumerate}
+	\item Press r: The program will run to completion without any further input from the user
+	\item Press s: The program will run one instruction per key press.
+	\item Press q: This option will cleanly end the program.
+\end{enumerate}
+
+Regardless of the option the user chooses above, the last option has to be eventually chosen to end the program.
+\end{flushleft}
 
 % Here is basically all the bugs that you have found, but have fixes for that can be easily done.
 % This should be more about compilation things and actual user error, rather than bugs in the code.
 % For example, the 'qmake' issue, would have a soultion of 'make sure the Qt libraries are installed.
 \subsection{Troubleshooting}
 \paragraph{}
+\begin{flushleft}
+If the correct libraries are not installed, the compilation error should be used as a guide to fix the problem. Feel free to consult online resources to figure out what these errors mean. 
+
+Even when the ncurses library installed, the user may come across the error:
+\begin{lstlisting}
+	libncursesw.so.6:cannot open shared object file:No such file or directory
+\end{lstlisting}
+To solve this problem on an linux machine, run the following command
+\begin{lstlisting}
+	ln -s libncursesw.so.5 /lib/x86_64-linux-gnu/libncursesw.so.6
+\end{lstlisting}
+\end{flushleft}
 
 % I would put various bugs you have found ( and commit numbers where you have
 % fixed them if they are no longer present ). It's good to acknolwedge what is wrong and ideas on how to fix the issues,
@@ -116,24 +173,52 @@
 % "In order to increase readability for parsing the instructions, a struct was used to separate the bit fields. An added benefit is that this
 % eliminates the need to use bitwise operations later in the program". The implied question is "why use a struct instead of an integer?". 
 \section[Internals]{Simulator Internals Documentation}
-
 % Here discuss the different parts of the program, and how you put them together. The different parts should be explained later in
 % their respective sections
 \paragraph{}
+\begin{flushleft}
+
+\end{flushleft}
+
 
 
 \subsection{ELF Handling}
 \paragraph{} 
+\begin{flushleft}
+For the purpose of extracting both machine code, and data from the the elf file, the developers used a C library. The library provides an API that parses the elf file and places the information in the relevent user provided arrays. On top of that it provides a structure elements that hold important information like the address of the beginning of the text segment, its size etc which are useful for tracking the progress of the program.
+\end{flushleft}
+
 
 \subsection{CPU Simulation}
 \paragraph{}
+\begin{flushleft}
+To simulate the CPU, the developers used macros to mimic the control unit, and functions for each instructions. Structures were also used to separate instruction bit fields.
+\end{flushleft}
+
 
 \subsection{Memory Simulation}
 \paragraph{}
+\begin{flushleft}
+A combination of arrays and multidimensional pointers were used to hold various kinds of information. For memory elements that have predefined sizes like registers, arrays were the obvious choice. On the other hand, data that depends on user inputs is held in pointers whose sizes can be varied according to need. This eliminates the inefficient alternative of hoarding memory that does not actually get used. 
+
+The text document was store as a double pointer to make it easy to access different lines of text from the disassembled file. This was important for the purpose of highlighting the line on the code text currently being executed as the program runs. Also important to mention is the choice of using the disassembly file over the assembly language text file. The disassembly file has the advantage that it juxtaposes human readable instructions with their actual address in the instruction memory, which makes it easy for the user to follow the program.
+\end{flushleft}
+
 
 %Even without a Graphical User Interface, there is still one so you should explain that
 \subsection{User Interface}
 \paragraph{}
+\begin{flushleft}
+The program has been written in the C language. The nature of the language lends itself well to the task. As C is a low level language, bit manipulation was made very easy. It also gave the developers the ability to use memory sparingly through the use of the dynamic memory allocation tools it provides. The extensive use of pointers also meant that C was going to be the developers language of choice. Lastly, C provided the developers with very easy to use functions to represent numbers in different number systems.
+
+
+The designers opted to use the ncurses library for creating the user interface for the reasons that:
+ \begin{enumerate}
+  \item ncurses user interfaces are commonly written in C. There were therefore a lot of resources out there available to the developers to learn from and fewer issues to run into.
+  \item It is a very simple user interface that displays on the terminal. The developers could therefore keep the design as simple as possible but also presentable.
+\end{enumerate}
+\end{flushleft}
+
 
 %add any additional sections I may have missed. Don't feel weird about changing the sections around, or splitting them into further
 %sections. There should be subdivisions of what you did, but don't make them so divided that it's impossible to read

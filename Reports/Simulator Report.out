@@ -1,13 +1,13 @@
 \BOOKMARK [1][-]{section.1}{Overview}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Use\040Case}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Design\040Choices\040and\040Functionality}{section.1}% 3
-\BOOKMARK [1][-]{section.2}{Simulator\040Usage}{}% 4
+\BOOKMARK [2][-]{subsection.1.1}{Use Case}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Design Choices and Functionality}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Simulator Usage}{}% 4
 \BOOKMARK [2][-]{subsection.2.1}{Compilation}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.2}{Simulator\040Command}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Simulator Command}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.3}{Troubleshooting}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.4}{Known\040Bugs}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.4}{Known Bugs}{section.2}% 8
 \BOOKMARK [1][-]{section.3}{Internals}{}% 9
-\BOOKMARK [2][-]{subsection.3.1}{ELF\040Handling}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.2}{CPU\040Simulation}{section.3}% 11
-\BOOKMARK [2][-]{subsection.3.3}{Memory\040Simulation}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.4}{User\040Interface}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.1}{ELF Handling}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{CPU Simulation}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Memory Simulation}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.4}{User Interface}{section.3}% 13
